@@ -1,1 +1,41 @@
 //
+.card {
+    width: 21%;
+    margin: 2%;
+    text-align: center;
+  }
+  .input {
+    width: 21%;
+  }
+  
+  .buttonD {
+    padding-top: 50px;;
+  }
+
+  .siteHeader{
+      background-color: rgba(0, 0, 0, .85);
+      backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .t{
+    color: #999;
+    transition: ease-in-out color .15s;
+    transition-property: color;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.tHeader {
+    color: #999;
+    transition: ease-in-out color .15s;
+    transition-property: color;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.tHeader:hover {
+    color: #fff;
+    text-decoration: none;
+}
