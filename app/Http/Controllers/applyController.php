@@ -7,6 +7,7 @@ use App\Http\Requests\applyRequest;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Attribute;
+use App\Models\ProductAtribute;
 
 class applyController extends Controller
 {
@@ -21,9 +22,15 @@ class applyController extends Controller
         $applyProduct->sku = $req->input('sku');
         $applyProduct->name = $req->input('name');
         $applyProduct->price = $req->input('price');
+        $applyProduct->save();
+
         foreach($atributes as $atribute){
             //dd($atribute->aName);
-            $applyProduct->atribute = $req->input($atribute->aName);
+            $productAtribute = new ProductAtribute();
+            $productAtribute->product_id = $applyProduct->id;
+            $productAtribute->atribute = $req->input($atribute->aName);
+            $productAtribute->hidden = false;
+            $productAtribute->save();
         }
 
         /*if ($req->switcher == 'disc')
@@ -35,13 +42,13 @@ class applyController extends Controller
         if ($req->switcher == 'furniture')
             $applyProduct->atribute = $req->input('height').'x'.$req->input('width').'x'.$req->input('lenght');*/
 
-        $applyProduct->save();
+        
 
         return redirect()->route('index')->with('success', 'Product added');
     }
 
     public function allProductData() {
-        return view('index', ['data' => Product::all()]); 
+        return view('index', ['productData' => Product::all(), 'atributeData' => ProductAtribute::all()]); 
     }
 
     public function allCategoryData() {

@@ -3,6 +3,14 @@
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center p-4 mb-3">
     <h1 class="h2">Product Add</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button form="cBox" type="submit" class="btn btn-sm btn-outline-secondary py-2 px-2">Add Category</button>
+      </div>
+      <div class="btn-group mr-2">
+        <button form="cBox" type="submit" class="btn btn-sm btn-outline-secondary py-2 px-2">Add Attributes</button>
+      </div>
+    </div>
 </div>
   
  <form action="{{ route('apply-form') }}" method="post">
