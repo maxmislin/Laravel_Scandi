@@ -5,10 +5,10 @@
     <h1 class="h2">Product Add</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <button form="cBox" type="submit" class="btn btn-sm btn-outline-secondary py-2 px-2">Add Category</button>
+        <a class="btn btn-sm btn-outline-secondary py-2 px-2" href="{{ route('addCategories') }}">Add Categories</a>
       </div>
       <div class="btn-group mr-2">
-        <button form="cBox" type="submit" class="btn btn-sm btn-outline-secondary py-2 px-2">Add Attributes</button>
+        <a class="btn btn-sm btn-outline-secondary py-2 px-2" href="{{ route('addAtributes') }}">Add Attributes</a>
       </div>
     </div>
 </div>

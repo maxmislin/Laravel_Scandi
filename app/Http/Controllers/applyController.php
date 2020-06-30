@@ -25,24 +25,18 @@ class applyController extends Controller
         $applyProduct->save();
 
         foreach($atributes as $atribute){
-            //dd($atribute->aName);
+            //dd($atribute);
             $productAtribute = new ProductAtribute();
             $productAtribute->product_id = $applyProduct->id;
             $productAtribute->atribute = $req->input($atribute->aName);
-            $productAtribute->hidden = false;
+
+            if ($req->hidden == 'true')
+                $productAtribute->hidden = true;
+            else
+                $productAtribute->hidden = false;
+
             $productAtribute->save();
         }
-
-        /*if ($req->switcher == 'disc')
-            $applyProduct->atribute = $req->input('disc');
-         
-        if ($req->switcher == 'book')
-            $applyProduct->atribute = $req->input('book');
-
-        if ($req->switcher == 'furniture')
-            $applyProduct->atribute = $req->input('height').'x'.$req->input('width').'x'.$req->input('lenght');*/
-
-        
 
         return redirect()->route('index')->with('success', 'Product added');
     }
@@ -54,8 +48,14 @@ class applyController extends Controller
     public function allCategoryData() {
         return view('apply', ['data' => Category::all(), 'data1' => Attribute::all()]); 
     }
+    
+    public function addCategoriesData() {
+        return view('addCategories');
+    }
 
-
+    public function addAtributesData() {
+        return view('addAtributes');
+    }
 
     public function massDelete(Request $req) {
         

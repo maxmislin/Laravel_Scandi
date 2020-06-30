@@ -33,7 +33,7 @@
 						@foreach($atributeData as $atributes)
 							@foreach($atributes->getAttributes() as $atribute)
 								@if (strval($atribute) != strval($atributes->id) && strval($atribute) != strval($atributes->created_at) && strval($atribute) != strval($atributes->updated_at) && strval($atribute) != strval($atributes->product_id) && strval($atribute) != strval($atributes->hidden))
-									@if ($products->id == $atributes->product_id)
+									@if ($products->id == $atributes->product_id && $atributes->hidden == 0)
 										<li>{{ $atribute }}</li>
 									@endif
 								@endif		

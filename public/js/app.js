@@ -19376,23 +19376,37 @@ function createForm(sel) {
 }
 
 function Change(name, aName) {
-  var label = document.createElement("Label");
-  label.htmlFor = name;
-  label.innerHTML = aName;
-  label.id = "onChange";
-  var disc = document.createElement("input");
-  disc.setAttribute("type", "text");
-  disc.setAttribute("class", "form-control");
-  disc.setAttribute("name", aName);
-  disc.setAttribute("required", "");
-  disc.setAttribute("id", "onChange");
+  var labelInput = document.createElement("Label");
+  labelInput.setAttribute("class", "mt-2");
+  labelInput.htmlFor = name;
+  labelInput.innerHTML = aName;
+  labelInput.id = "onChange";
+  var input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.setAttribute("class", "form-control");
+  input.setAttribute("name", aName);
+  input.setAttribute("required", "");
+  input.setAttribute("id", "onChange");
+  var cBox = document.createElement("input");
+  cBox.setAttribute("type", "checkbox");
+  cBox.setAttribute("name", "hidden");
+  cBox.setAttribute("value", "true");
+  cBox.setAttribute("class", "ml-1");
+  cBox.setAttribute("id", "onChange");
+  var labelcBox = document.createElement("Label");
+  labelcBox.setAttribute("class", "mt-2");
+  labelcBox.htmlFor = "cBox";
+  labelcBox.innerHTML = "Hidden";
+  labelcBox.id = "onChange";
   var p = document.createElement("p");
   p.innerHTML = "Please, enter " + aName;
   p.setAttribute("class", "tip");
   p.id = "onChange";
   form.appendChild(p);
-  form.appendChild(label);
-  form.appendChild(disc);
+  form.appendChild(labelInput);
+  form.appendChild(input);
+  form.appendChild(labelcBox);
+  form.appendChild(cBox);
 }
 /*function Disc() {
   var label = document.createElement("Label");
