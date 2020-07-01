@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Atribute;
 
-class applyRequest extends FormRequest
+class addCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +22,9 @@ class applyRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {   
-        $rules = array('sku' => 'required|min:3|max:20|unique:App\Models\Product,sku',
-        'name' => 'required|min:3|max:30',
-        'price' => 'required');
-
-        return $rules;
+    {
+        return [
+            'name' => 'required|min:3|max:20|unique:App\Models\Category,name'
+        ];
     }
 }

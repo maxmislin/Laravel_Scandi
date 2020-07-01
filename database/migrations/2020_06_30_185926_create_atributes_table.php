@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttributesTable extends Migration
+class CreateAtributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,12 @@ class CreateAttributesTable extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('aName');
+            $table->string('units');
+            $table->boolean('required');
+            $table->boolean('numeric');
+            $table->boolean('unique');
+            $table->integer('min');
+            $table->integer('max');
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ class CreateAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('atributes');
     }
 }
